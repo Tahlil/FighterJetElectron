@@ -1,7 +1,8 @@
 {
   "name": "fighter-jet",
-  "description": "A Fighter jet game",
-  "license":"LICENSE",
+  "description": "A Fighter jet shooting game",
+  "author": "Tahlil bsse0803@iit.du.ac.bd",
+  "license":"Apache-2.0",
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
@@ -11,8 +12,9 @@
   "repository": "https://github.com/Tahlil/FIghterJetElectron",
   "scripts": {
     "start": "electron .",
-    "dist": "build",
-    "ship": "build --win -p always"
+    "dist": "build --arch all",
+    "ship": "build --win -p always",
+    "postinstall":"install-app-deps"
   },
   "dependencies": {
     "electron-updater": "^4.0.6",
@@ -22,6 +24,17 @@
   },
   "build": {
     "appId": "com.bs.jetFighterElectron",
+    "productName": "Fighter Jet",
+    "publish": [
+      {
+        "provider": "github",
+        "repo":"FighterJetElectron", 
+        "owner":"Tahlil"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.game"
+    },
     "dmg": {
       "contents": [
         {
@@ -37,9 +50,74 @@
       ]
     },
     "linux": {
+      "category":"Games",
+      "icon":"build/icons",
+      "packageCategory": "games",
+      "maintainer": "Tahlil bsse0803@iit.du.ac.bd",
       "target": [
         "AppImage",
-        "deb"
+        "deb",
+        "rpm"
+      ],
+      "synopsis":"A fighter jet shooting game"
+    },
+    "deb":{
+      "publish": [
+        {
+          "provider": "bintray",
+          "package":"Fighter-jet-deb",
+          "repo":"Fighter-jet-debian", 
+          "owner":"Tahlil",
+          "component":"Fighter-jet-deb"
+        }
+      ],
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3"
+      ]
+    },
+    "rpm":{
+      "publish": [
+        {
+          "provider": "bintray",
+          "package":"Fighter-jet-rpm",
+          "repo":"Fighter-jet-rpm", 
+          "owner":"Tahlil"
+        }
+      ],
+      "depends": [
+        "GConf2",
+        "libnotify",
+        "nss",
+        "libappindicator",
+        "libXtst"
+      ]
+    },
+    "snap":{
+      "confinement": "strict",
+      "summary":"A fighter jet shooting game",
+      "grade":"stable",
+      "buildPackages":[],
+      "stagePackages": [
+        
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3",
+        "libxss1",
+        "fontconfig-config",
+        "gconf2",
+        "libasound2",
+        "pulseaudio"
+      ],
+      "plugs":[
+        "default",
+        "unity8-calender"
       ]
     },
     "win": {
