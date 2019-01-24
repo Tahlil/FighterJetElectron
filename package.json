@@ -1,0 +1,56 @@
+{
+  "name": "fighter-jet",
+  "description": "A Fighter jet game",
+  "license":"LICENSE",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^1.6.11",
+    "electron-builder": "^20.38.5"
+  },
+  "repository": "https://github.com/Tahlil/FIghterJetElectron",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build",
+    "ship": "build --win -p always"
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.6",
+    "jquery": "^3.3.1",
+    "electron-is-dev": "1.0.1",
+    "electron-log": "2.2.17"
+  },
+  "build": {
+    "appId": "com.bs.jetFighterElectron",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "license": "LICENSE",
+      "runAfterFinish": true
+    }
+  }
+}
