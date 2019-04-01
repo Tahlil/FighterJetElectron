@@ -45,13 +45,10 @@ electron.app.on('ready', () => {
     width: 800,
     height: 600
   });
-  windows.main.loadURL(url.format({
-    pathname: path.join(__dirname, 'fighter-jet.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
+  windows.main.loadURL(path.join(__dirname, '//fighter-jet.html'));
 
   windows.main.on('closed', () => {
     win = null
   });
+
 });

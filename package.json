@@ -13,7 +13,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "build --arch all",
-    "ship": "build --win -p always",
+    "ship": "build --win -p always --config electron-builder.yml",
     "postinstall":"install-app-deps"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
         "owner":"Tahlil"
       }
     ],
+    
     "dmg": {
       "contents": [
         {
