@@ -2,7 +2,7 @@
   "name": "fighter-jet",
   "description": "A Fighter jet shooting game",
   "author": "Tahlil bsse0803@iit.du.ac.bd",
-  "license":"Apache-2.0",
+  "license": "Apache-2.0",
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
@@ -12,9 +12,9 @@
   "repository": "https://github.com/Tahlil/FIghterJetElectron",
   "scripts": {
     "start": "electron .",
-    "dist": "build --arch all",
+    "dist": "build",
     "ship": "build --win -p always --config electron-builder.yml",
-    "postinstall":"install-app-deps"
+    "postinstall": "install-app-deps"
   },
   "dependencies": {
     "electron-updater": "^4.0.6",
@@ -28,11 +28,10 @@
     "publish": [
       {
         "provider": "github",
-        "repo":"FighterJetElectron", 
-        "owner":"Tahlil"
+        "repo": "FighterJetElectron",
+        "owner": "Tahlil"
       }
     ],
-    
     "dmg": {
       "contents": [
         {
@@ -48,25 +47,23 @@
       ]
     },
     "linux": {
-      "category":"Games",
-      "icon":"build/icons",
+      "category": "Games",
+      "icon": "build/icons",
       "packageCategory": "games",
       "maintainer": "Tahlil bsse0803@iit.du.ac.bd",
       "target": [
-        "AppImage",
-        "deb",
-        "rpm"
+        "AppImage"
       ],
-      "synopsis":"A fighter jet shooting game"
+      "synopsis": "A fighter jet shooting game"
     },
-    "deb":{
+    "deb": {
       "publish": [
         {
           "provider": "bintray",
-          "package":"Fighter-jet-deb",
-          "repo":"Fighter-jet-debian", 
-          "owner":"Tahlil",
-          "component":"Fighter-jet-deb"
+          "package": "Fighter-jet-deb",
+          "repo": "Fighter-jet-debian",
+          "owner": "Tahlil",
+          "component": "Fighter-jet-deb"
         }
       ],
       "depends": [
@@ -78,13 +75,13 @@
         "libnss3"
       ]
     },
-    "rpm":{
+    "rpm": {
       "publish": [
         {
           "provider": "bintray",
-          "package":"Fighter-jet-rpm",
-          "repo":"Fighter-jet-rpm", 
-          "owner":"Tahlil"
+          "package": "Fighter-jet-rpm",
+          "repo": "Fighter-jet-rpm",
+          "owner": "Tahlil"
         }
       ],
       "depends": [
@@ -95,13 +92,12 @@
         "libXtst"
       ]
     },
-    "snap":{
+    "snap": {
       "confinement": "strict",
-      "summary":"A fighter jet shooting game",
-      "grade":"stable",
-      "buildPackages":[],
+      "summary": "A fighter jet shooting game",
+      "grade": "stable",
+      "buildPackages": [],
       "stagePackages": [
-        
         "gconf-service",
         "libnotify4",
         "libappindicator1",
@@ -113,7 +109,7 @@
         "libasound2",
         "pulseaudio"
       ],
-      "plugs":[
+      "plugs": [
         "default",
         "unity8-calender"
       ]

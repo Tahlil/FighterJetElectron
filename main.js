@@ -28,7 +28,7 @@ autoUpdater.on('download-progress', (progress) => {
 
 autoUpdater.on('update-downloaded', () => {
   console.log("Update Downloaded");
-  autoUpdater.quitAndInstall();
+  //autoUpdater.quitAndInstall();
 });
 
 autoUpdater.on('error', (error) => {
@@ -39,9 +39,10 @@ const windows = {};
 
 electron.app.on('ready', () => {
   if (!isDev) {
-    autoUpdater.chekForUpdate();
+    //autoUpdater.chekForUpdate();
   }
   windows.main = new electron.BrowserWindow({
+    icon: path.join(__dorname+"/build/"),
     width: 800,
     height: 600
   });
